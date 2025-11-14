@@ -5,3 +5,4 @@ com/example/bedrock/dto/ChatResponse.class
 com/example/bedrock/controller/BedrockController.class
 com/example/bedrock/BedrockApplication.class
 com/example/bedrock/service/BedrockService.class
+com/example/bedrock/service/ConversationService.class
