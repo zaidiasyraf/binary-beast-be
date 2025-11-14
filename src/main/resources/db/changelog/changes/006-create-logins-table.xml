@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="006-create-logins-table" author="system">
+        <createTable tableName="logins">
+            <column name="login_id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="login_date" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="login_channel" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="session_duration" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="device_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="logins"
+                baseColumnNames="customer_id"
+                constraintName="fk_logins_customer"
+                referencedTableName="customers"
+                referencedColumnNames="customer_id"
+                onDelete="CASCADE"/>
+
+        <sql>
+            CREATE INDEX idx_logins_customer ON logins(customer_id);
+            CREATE INDEX idx_logins_date ON logins(login_date);
+            CREATE INDEX idx_logins_channel ON logins(login_channel);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="logins"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="003-create-accounts-table" author="system">
+        <createTable tableName="accounts">
+            <column name="account_id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="account_number" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="balance" type="DECIMAL(15,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="opening_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="embedding" type="vector(1024)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="content_text" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="accounts"
+                baseColumnNames="customer_id"
+                constraintName="fk_accounts_customer"
+                referencedTableName="customers"
+                referencedColumnNames="customer_id"
+                onDelete="CASCADE"/>
+
+        <sql>
+            CREATE INDEX ON accounts USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            CREATE INDEX idx_accounts_customer ON accounts(customer_id);
+            CREATE INDEX idx_accounts_type ON accounts(account_type);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="accounts"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

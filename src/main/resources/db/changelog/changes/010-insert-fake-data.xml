@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="010-insert-fake-data" author="system">
+        
+        <!-- Insert Products (Aeon Bank Malaysia Products) -->
+        <insert tableName="products">
+            <column name="product_id" value="1"/>
+            <column name="product_name" value="Aeon Savings Account"/>
+            <column name="product_type" value="SAVINGS"/>
+            <column name="product_category" value="Deposit"/>
+            <column name="margin_rate" value="2.50"/>
+            <column name="description" value="Basic savings account with competitive interest rates"/>
+        </insert>
+        
+        <insert tableName="products">
+            <column name="product_id" value="2"/>
+            <column name="product_name" value="Aeon Term Deposit"/>
+            <column name="product_type" value="TERM_DEPOSIT"/>
+            <column name="product_category" value="Deposit"/>
+            <column name="margin_rate" value="3.50"/>
+            <column name="description" value="Fixed term deposit with higher interest rates for 6, 12, or 24 months"/>
+        </insert>
+        
+        <insert tableName="products">
+            <column name="product_id" value="3"/>
+            <column name="product_name" value="Aeon Savings Pot"/>
+            <column name="product_type" value="SAVINGS_POT"/>
+            <column name="product_category" value="Deposit"/>
+            <column name="margin_rate" value="2.75"/>
+            <column name="description" value="Goal-based savings pot with automatic transfers and higher interest"/>
+        </insert>
+        
+        <insert tableName="products">
+            <column name="product_id" value="4"/>
+            <column name="product_name" value="Aeon Personal Financing"/>
+            <column name="product_type" value="PERSONAL_FINANCING"/>
+            <column name="product_category" value="Credit"/>
+            <column name="margin_rate" value="8.50"/>
+            <column name="description" value="Personal financing for various purposes with flexible repayment"/>
+        </insert>
+
+        <!-- Insert Customers (Malaysian customers) -->
+        <insert tableName="customers">
+            <column name="customer_id" value="1"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Ahmad bin Abdullah"/>
+            <column name="email" value="ahmad.abdullah@email.com"/>
+            <column name="phone" value="+60123456789"/>
+            <column name="address" value="No. 15, Jalan Bukit Bintang"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="50000"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-01-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="BEGINNER"/>
+            <column name="transaction_frequency" value="25"/>
+            <column name="login_frequency" value="15"/>
+            <column name="savings_deposit_frequency" value="5"/>
+            <column name="month_over_month_growth" value="5.20"/>
+            <column name="profitability_score" value="0.45"/>
+            <column name="engagement_score" value="0.60"/>
+            <column name="digital_feature_score" value="35.00"/>
+            <column name="disengagement_risk_score" value="0.25"/>
+            <column name="graduation_potential_score" value="0.30"/>
+            <column name="content_text" value="Ahmad bin Abdullah is a B40 customer from Kuala Lumpur. He has 25 transactions per month with 15 logins. Shows beginner level digital engagement with potential for growth."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="2"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Siti Nurhaliza binti Mohd"/>
+            <column name="email" value="siti.nurhaliza@email.com"/>
+            <column name="phone" value="+60123456790"/>
+            <column name="address" value="No. 42, Taman Desa, Jalan Klang Lama"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="58100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2022-08-20"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="55"/>
+            <column name="login_frequency" value="40"/>
+            <column name="savings_deposit_frequency" value="12"/>
+            <column name="month_over_month_growth" value="12.50"/>
+            <column name="profitability_score" value="0.85"/>
+            <column name="engagement_score" value="0.90"/>
+            <column name="digital_feature_score" value="85.00"/>
+            <column name="disengagement_risk_score" value="0.10"/>
+            <column name="graduation_potential_score" value="0.75"/>
+            <column name="content_text" value="Siti Nurhaliza is a high-value M40 customer with 55 transactions monthly. High digital engagement leader with strong profitability. Shows graduation potential to business products."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="3"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Tan Siew Leng Trading Sdn Bhd"/>
+            <column name="email" value="tan.siewleng@trading.com.my"/>
+            <column name="phone" value="+60123456791"/>
+            <column name="address" value="Lot 12, Jalan Pasar, Pudu"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="55100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2021-05-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="120"/>
+            <column name="login_frequency" value="60"/>
+            <column name="savings_deposit_frequency" value="20"/>
+            <column name="month_over_month_growth" value="18.30"/>
+            <column name="profitability_score" value="0.92"/>
+            <column name="engagement_score" value="0.95"/>
+            <column name="digital_feature_score" value="90.00"/>
+            <column name="disengagement_risk_score" value="0.05"/>
+            <column name="graduation_potential_score" value="0.20"/>
+            <column name="content_text" value="Tan Siew Leng Trading is an active SME with 120 transactions monthly. High profitability and digital leader. Strong business ecosystem with frequent inter-SME transactions."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="4"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Raj Kumar a/l Muthu"/>
+            <column name="email" value="raj.kumar@email.com"/>
+            <column name="phone" value="+60123456792"/>
+            <column name="address" value="No. 8, Taman Sri Petaling"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="57000"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-03-22"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="BEGINNER"/>
+            <column name="transaction_frequency" value="18"/>
+            <column name="login_frequency" value="8"/>
+            <column name="savings_deposit_frequency" value="3"/>
+            <column name="month_over_month_growth" value="-5.00"/>
+            <column name="profitability_score" value="0.35"/>
+            <column name="engagement_score" value="0.40"/>
+            <column name="digital_feature_score" value="25.00"/>
+            <column name="disengagement_risk_score" value="0.65"/>
+            <column name="graduation_potential_score" value="0.15"/>
+            <column name="content_text" value="Raj Kumar is a B40 customer showing early disengagement signs. Login frequency dropped from 15 to 8. Transaction frequency decreased. Requires re-engagement intervention."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="5"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Wong Brothers Enterprise"/>
+            <column name="email" value="wong.brothers@enterprise.com.my"/>
+            <column name="phone" value="+60123456793"/>
+            <column name="address" value="No. 25, Jalan Ampang"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="50450"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2020-11-05"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="95"/>
+            <column name="login_frequency" value="55"/>
+            <column name="savings_deposit_frequency" value="18"/>
+            <column name="month_over_month_growth" value="22.40"/>
+            <column name="profitability_score" value="0.88"/>
+            <column name="engagement_score" value="0.92"/>
+            <column name="digital_feature_score" value="88.00"/>
+            <column name="disengagement_risk_score" value="0.08"/>
+            <column name="graduation_potential_score" value="0.25"/>
+            <column name="content_text" value="Wong Brothers Enterprise is a fast-growing SME with 22.4% month-over-month growth. High transaction volume and strong digital engagement. Part of active business ecosystem."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="6"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="T20"/>
+            <column name="name" value="Dato' Dr. Lim Wei Ming"/>
+            <column name="email" value="lim.weiming@email.com"/>
+            <column name="phone" value="+60123456794"/>
+            <column name="address" value="No. 88, Jalan Bukit Ceylon"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="50200"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2019-07-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="45"/>
+            <column name="login_frequency" value="35"/>
+            <column name="savings_deposit_frequency" value="10"/>
+            <column name="month_over_month_growth" value="8.50"/>
+            <column name="profitability_score" value="0.95"/>
+            <column name="engagement_score" value="0.88"/>
+            <column name="digital_feature_score" value="82.00"/>
+            <column name="disengagement_risk_score" value="0.12"/>
+            <column name="graduation_potential_score" value="0.10"/>
+            <column name="content_text" value="Dato' Dr. Lim Wei Ming is a top 10% profitable T20 customer with high-value transactions. Multiple products including term deposits and personal financing. Long-term relationship."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="7"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Fatimah binti Hassan"/>
+            <column name="email" value="fatimah.hassan@email.com"/>
+            <column name="phone" value="+60123456795"/>
+            <column name="address" value="No. 33, Taman Melati, Gombak"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="53100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="HIDDEN_BUSINESS"/>
+            <column name="transaction_frequency" value="35"/>
+            <column name="login_frequency" value="20"/>
+            <column name="savings_deposit_frequency" value="8"/>
+            <column name="month_over_month_growth" value="15.00"/>
+            <column name="profitability_score" value="0.55"/>
+            <column name="engagement_score" value="0.65"/>
+            <column name="digital_feature_score" value="50.00"/>
+            <column name="disengagement_risk_score" value="0.30"/>
+            <column name="graduation_potential_score" value="0.80"/>
+            <column name="content_text" value="Fatimah binti Hassan shows business-like transaction patterns in personal account. Regular QR receipts averaging RM500 weekly. High graduation potential to business products."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="8"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Hassan &amp; Sons Sdn Bhd"/>
+            <column name="email" value="hassan.sons@business.com.my"/>
+            <column name="phone" value="+60123456796"/>
+            <column name="address" value="No. 17, Jalan Tuanku Abdul Rahman"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="50100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2022-02-14"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="110"/>
+            <column name="login_frequency" value="65"/>
+            <column name="savings_deposit_frequency" value="22"/>
+            <column name="month_over_month_growth" value="16.80"/>
+            <column name="profitability_score" value="0.90"/>
+            <column name="engagement_score" value="0.93"/>
+            <column name="digital_feature_score" value="92.00"/>
+            <column name="disengagement_risk_score" value="0.07"/>
+            <column name="graduation_potential_score" value="0.22"/>
+            <column name="content_text" value="Hassan &amp; Sons is an active SME with strong digital feature usage. High transaction frequency and profitability. Part of interconnected business network."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="9"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Muthu a/l Subramaniam"/>
+            <column name="email" value="muthu.subra@email.com"/>
+            <column name="phone" value="+60123456797"/>
+            <column name="address" value="No. 5, Taman Sentosa, Klang"/>
+            <column name="city" value="Klang"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="41200"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-09-01"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="BEGINNER"/>
+            <column name="transaction_frequency" value="12"/>
+            <column name="login_frequency" value="5"/>
+            <column name="savings_deposit_frequency" value="2"/>
+            <column name="month_over_month_growth" value="-8.00"/>
+            <column name="profitability_score" value="0.28"/>
+            <column name="engagement_score" value="0.30"/>
+            <column name="digital_feature_score" value="20.00"/>
+            <column name="disengagement_risk_score" value="0.75"/>
+            <column name="graduation_potential_score" value="0.10"/>
+            <column name="content_text" value="Muthu a/l Subramaniam is a B40 customer from Klang showing high disengagement risk. Low digital adoption, prefers cash withdrawals. Under-served customer requiring digital migration support."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="10"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Lee Trading Company"/>
+            <column name="email" value="lee.trading@company.com.my"/>
+            <column name="phone" value="+60123456798"/>
+            <column name="address" value="No. 30, Jalan Imbi"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="55100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2021-12-08"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="LEADER"/>
+            <column name="transaction_frequency" value="105"/>
+            <column name="login_frequency" value="58"/>
+            <column name="savings_deposit_frequency" value="19"/>
+            <column name="month_over_month_growth" value="20.50"/>
+            <column name="profitability_score" value="0.87"/>
+            <column name="engagement_score" value="0.91"/>
+            <column name="digital_feature_score" value="89.00"/>
+            <column name="disengagement_risk_score" value="0.09"/>
+            <column name="graduation_potential_score" value="0.18"/>
+            <column name="content_text" value="Lee Trading Company is a fast-growing SME with 20.5% MoM growth. High digital feature usage and strong profitability. Active in business ecosystem with frequent inter-SME transactions."/>
+        </insert>
+
+        <!-- Insert Accounts -->
+        <insert tableName="accounts">
+            <column name="account_id" value="1"/>
+            <column name="customer_id" value="1"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON001234567"/>
+            <column name="balance" value="3500.00"/>
+            <column name="opening_date" value="2023-01-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Ahmad's savings account with balance RM3,500. Opened in January 2023."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="2"/>
+            <column name="customer_id" value="2"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON002345678"/>
+            <column name="balance" value="25000.00"/>
+            <column name="opening_date" value="2022-08-20"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Siti's savings account with balance RM25,000. High-value account with frequent transactions."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="3"/>
+            <column name="customer_id" value="2"/>
+            <column name="account_type" value="SAVINGS_POT"/>
+            <column name="account_number" value="AEON002345679"/>
+            <column name="balance" value="5000.00"/>
+            <column name="opening_date" value="2023-03-01"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Siti's savings pot with balance RM5,000 for goal-based savings."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="4"/>
+            <column name="customer_id" value="3"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON003456789"/>
+            <column name="balance" value="125000.00"/>
+            <column name="opening_date" value="2021-05-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Tan Siew Leng Trading business account with balance RM125,000. High transaction volume."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="5"/>
+            <column name="customer_id" value="4"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON004567890"/>
+            <column name="balance" value="1200.00"/>
+            <column name="opening_date" value="2023-03-22"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Raj's savings account with balance RM1,200. Low balance, showing disengagement."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="6"/>
+            <column name="customer_id" value="5"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON005678901"/>
+            <column name="balance" value="98000.00"/>
+            <column name="opening_date" value="2020-11-05"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Wong Brothers Enterprise business account with balance RM98,000. Fast-growing account."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="7"/>
+            <column name="customer_id" value="6"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON006789012"/>
+            <column name="balance" value="75000.00"/>
+            <column name="opening_date" value="2019-07-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Dato' Dr. Lim's savings account with balance RM75,000. High-value customer account."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="8"/>
+            <column name="customer_id" value="6"/>
+            <column name="account_type" value="TERM_DEPOSIT"/>
+            <column name="account_number" value="AEON006789013"/>
+            <column name="balance" value="100000.00"/>
+            <column name="opening_date" value="2023-01-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Dato' Dr. Lim's term deposit with balance RM100,000 for 12 months."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="9"/>
+            <column name="customer_id" value="7"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON007890123"/>
+            <column name="balance" value="8500.00"/>
+            <column name="opening_date" value="2023-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Fatimah's savings account with balance RM8,500. Shows business-like patterns with regular QR receipts."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="10"/>
+            <column name="customer_id" value="8"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON008901234"/>
+            <column name="balance" value="110000.00"/>
+            <column name="opening_date" value="2022-02-14"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Hassan &amp; Sons business account with balance RM110,000. Active digital user."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="11"/>
+            <column name="customer_id" value="9"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON009012345"/>
+            <column name="balance" value="800.00"/>
+            <column name="opening_date" value="2023-09-01"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Muthu's savings account with balance RM800. Low engagement, prefers cash transactions."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="12"/>
+            <column name="customer_id" value="10"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON010123456"/>
+            <column name="balance" value="95000.00"/>
+            <column name="opening_date" value="2021-12-08"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Lee Trading Company business account with balance RM95,000. Fast-growing SME account."/>
+        </insert>
+
+        <!-- Insert Customer Products -->
+        <insert tableName="customer_products">
+            <column name="customer_id" value="1"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2023-01-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="25"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="2"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2022-08-20"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="55"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="2"/>
+            <column name="product_id" value="3"/>
+            <column name="enrollment_date" value="2023-03-01"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="12"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="3"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2021-05-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="120"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="4"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2023-03-22"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="18"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="5"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2020-11-05"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="95"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="6"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2019-07-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="45"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="6"/>
+            <column name="product_id" value="2"/>
+            <column name="enrollment_date" value="2023-01-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="1"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="6"/>
+            <column name="product_id" value="4"/>
+            <column name="enrollment_date" value="2022-06-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="12"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="7"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2023-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="35"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="8"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2022-02-14"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="110"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="9"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2023-09-01"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="12"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="10"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2021-12-08"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="105"/>
+        </insert>
+
+        <!-- Insert Transactions (Sample transactions for various scenarios) -->
+        <insert tableName="transactions">
+            <column name="transaction_id" value="1"/>
+            <column name="account_id" value="1"/>
+            <column name="customer_id" value="1"/>
+            <column name="transaction_type" value="DEPOSIT"/>
+            <column name="amount" value="500.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-01-15"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="SAVINGS_DEPOSIT"/>
+            <column name="description" value="Monthly salary deposit"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Ahmad deposited RM500 via digital channel for savings on 2024-01-15."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="2"/>
+            <column name="account_id" value="2"/>
+            <column name="customer_id" value="2"/>
+            <column name="transaction_type" value="QR_PAYMENT"/>
+            <column name="amount" value="150.00"/>
+            <column name="direction" value="OUTFLOW"/>
+            <column name="transaction_date" value="2024-02-10"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="PURCHASE"/>
+            <column name="description" value="QR payment at restaurant"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Siti made QR payment of RM150 at restaurant via digital channel on 2024-02-10."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="3"/>
+            <column name="account_id" value="4"/>
+            <column name="customer_id" value="3"/>
+            <column name="counterparty_customer_id" value="5"/>
+            <column name="transaction_type" value="TRANSFER"/>
+            <column name="amount" value="5000.00"/>
+            <column name="direction" value="OUTFLOW"/>
+            <column name="transaction_date" value="2024-02-12"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_PAYMENT"/>
+            <column name="description" value="Payment to Wong Brothers Enterprise"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Tan Siew Leng Trading transferred RM5,000 to Wong Brothers Enterprise for business payment on 2024-02-12."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="4"/>
+            <column name="account_id" value="6"/>
+            <column name="customer_id" value="5"/>
+            <column name="counterparty_customer_id" value="3"/>
+            <column name="transaction_type" value="TRANSFER"/>
+            <column name="amount" value="5000.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-12"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_INCOME"/>
+            <column name="description" value="Payment from Tan Siew Leng Trading"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Wong Brothers Enterprise received RM5,000 from Tan Siew Leng Trading for business income on 2024-02-12."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="5"/>
+            <column name="account_id" value="9"/>
+            <column name="customer_id" value="7"/>
+            <column name="transaction_type" value="QR_PAYMENT"/>
+            <column name="amount" value="500.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-14"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="SIDE_INCOME"/>
+            <column name="description" value="QR receipt from customer"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Fatimah received RM500 via QR payment as side income on 2024-02-14. Shows business-like pattern."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="6"/>
+            <column name="account_id" value="7"/>
+            <column name="customer_id" value="6"/>
+            <column name="transaction_type" value="DEPOSIT"/>
+            <column name="amount" value="10000.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-01"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="SAVINGS_DEPOSIT"/>
+            <column name="description" value="High-value deposit"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Dato' Dr. Lim deposited RM10,000 via digital channel on 2024-02-01. High-value transaction."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="7"/>
+            <column name="account_id" value="11"/>
+            <column name="customer_id" value="9"/>
+            <column name="transaction_type" value="WITHDRAWAL"/>
+            <column name="amount" value="200.00"/>
+            <column name="direction" value="OUTFLOW"/>
+            <column name="transaction_date" value="2024-02-05"/>
+            <column name="channel" value="ATM"/>
+            <column name="category" value="CASH_WITHDRAWAL"/>
+            <column name="description" value="Cash withdrawal at ATM"/>
+            <column name="location" value="Klang"/>
+            <column name="content_text" value="Muthu withdrew RM200 cash at ATM on 2024-02-05. Prefers cash transactions over digital."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="8"/>
+            <column name="account_id" value="10"/>
+            <column name="customer_id" value="8"/>
+            <column name="counterparty_customer_id" value="10"/>
+            <column name="transaction_type" value="TRANSFER"/>
+            <column name="amount" value="3000.00"/>
+            <column name="direction" value="OUTFLOW"/>
+            <column name="transaction_date" value="2024-02-08"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_PAYMENT"/>
+            <column name="description" value="Payment to Lee Trading Company"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Hassan &amp; Sons transferred RM3,000 to Lee Trading Company for business payment on 2024-02-08."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="9"/>
+            <column name="account_id" value="12"/>
+            <column name="customer_id" value="10"/>
+            <column name="counterparty_customer_id" value="8"/>
+            <column name="transaction_type" value="TRANSFER"/>
+            <column name="amount" value="3000.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-08"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_INCOME"/>
+            <column name="description" value="Payment from Hassan &amp; Sons"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Lee Trading Company received RM3,000 from Hassan &amp; Sons for business income on 2024-02-08."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="10"/>
+            <column name="account_id" value="3"/>
+            <column name="customer_id" value="2"/>
+            <column name="transaction_type" value="DEPOSIT"/>
+            <column name="amount" value="1000.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-15"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="SAVINGS_DEPOSIT"/>
+            <column name="description" value="Savings pot deposit"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Siti deposited RM1,000 to savings pot via digital channel on 2024-02-15."/>
+        </insert>
+
+        <!-- Insert Logins -->
+        <insert tableName="logins">
+            <column name="login_id" value="1"/>
+            <column name="customer_id" value="1"/>
+            <column name="login_date" value="2024-02-10 08:30:00"/>
+            <column name="login_channel" value="MOBILE_APP"/>
+            <column name="session_duration" value="480"/>
+            <column name="device_type" value="Android"/>
+        </insert>
+
+        <insert tableName="logins">
+            <column name="login_id" value="2"/>
+            <column name="customer_id" value="2"/>
+            <column name="login_date" value="2024-02-10 09:15:00"/>
+            <column name="login_channel" value="MOBILE_APP"/>
+            <column name="session_duration" value="600"/>
+            <column name="device_type" value="iOS"/>
+        </insert>
+
+        <insert tableName="logins">
+            <column name="login_id" value="3"/>
+            <column name="customer_id" value="3"/>
+            <column name="login_date" value="2024-02-10 10:00:00"/>
+            <column name="login_channel" value="WEB"/>
+            <column name="session_duration" value="900"/>
+            <column name="device_type" value="Desktop"/>
+        </insert>
+
+        <insert tableName="logins">
+            <column name="login_id" value="4"/>
+            <column name="customer_id" value="4"/>
+            <column name="login_date" value="2024-02-05 14:20:00"/>
+            <column name="login_channel" value="MOBILE_APP"/>
+            <column name="session_duration" value="180"/>
+            <column name="device_type" value="Android"/>
+        </insert>
+
+        <insert tableName="logins">
+            <column name="login_id" value="5"/>
+            <column name="customer_id" value="5"/>
+            <column name="login_date" value="2024-02-10 11:30:00"/>
+            <column name="login_channel" value="WEB"/>
+            <column name="session_duration" value="720"/>
+            <column name="device_type" value="Desktop"/>
+        </insert>
+
+        <!-- Insert Digital Feature Usage -->
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="1"/>
+            <column name="customer_id" value="1"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="10"/>
+            <column name="last_used_date" value="2024-02-08"/>
+            <column name="usage_frequency" value="WEEKLY"/>
+            <column name="score" value="35.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="2"/>
+            <column name="customer_id" value="2"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="30"/>
+            <column name="last_used_date" value="2024-02-10"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="85.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="3"/>
+            <column name="customer_id" value="2"/>
+            <column name="feature_name" value="TRANSFER"/>
+            <column name="usage_count" value="25"/>
+            <column name="last_used_date" value="2024-02-09"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="80.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="4"/>
+            <column name="customer_id" value="3"/>
+            <column name="feature_name" value="TRANSFER"/>
+            <column name="usage_count" value="80"/>
+            <column name="last_used_date" value="2024-02-12"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="90.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="5"/>
+            <column name="customer_id" value="3"/>
+            <column name="feature_name" value="BILL_PAYMENT"/>
+            <column name="usage_count" value="15"/>
+            <column name="last_used_date" value="2024-02-01"/>
+            <column name="usage_frequency" value="MONTHLY"/>
+            <column name="score" value="75.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="6"/>
+            <column name="customer_id" value="4"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="5"/>
+            <column name="last_used_date" value="2024-01-20"/>
+            <column name="usage_frequency" value="MONTHLY"/>
+            <column name="score" value="25.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="7"/>
+            <column name="customer_id" value="5"/>
+            <column name="feature_name" value="TRANSFER"/>
+            <column name="usage_count" value="70"/>
+            <column name="last_used_date" value="2024-02-10"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="88.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="8"/>
+            <column name="customer_id" value="6"/>
+            <column name="feature_name" value="INVESTMENT"/>
+            <column name="usage_count" value="8"/>
+            <column name="last_used_date" value="2024-02-05"/>
+            <column name="usage_frequency" value="MONTHLY"/>
+            <column name="score" value="70.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="9"/>
+            <column name="customer_id" value="7"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="20"/>
+            <column name="last_used_date" value="2024-02-14"/>
+            <column name="usage_frequency" value="WEEKLY"/>
+            <column name="score" value="50.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="10"/>
+            <column name="customer_id" value="8"/>
+            <column name="feature_name" value="TRANSFER"/>
+            <column name="usage_count" value="75"/>
+            <column name="last_used_date" value="2024-02-10"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="92.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="11"/>
+            <column name="customer_id" value="9"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="3"/>
+            <column name="last_used_date" value="2024-01-15"/>
+            <column name="usage_frequency" value="MONTHLY"/>
+            <column name="score" value="20.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="12"/>
+            <column name="customer_id" value="10"/>
+            <column name="feature_name" value="TRANSFER"/>
+            <column name="usage_count" value="68"/>
+            <column name="last_used_date" value="2024-02-10"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="89.00"/>
+        </insert>
+
+        <!-- Insert Customer Relationships (SME Ecosystems) -->
+        <insert tableName="customer_relationships">
+            <column name="relationship_id" value="1"/>
+            <column name="customer_id_1" value="3"/>
+            <column name="customer_id_2" value="5"/>
+            <column name="relationship_type" value="SUPPLIER"/>
+            <column name="transaction_count" value="25"/>
+            <column name="total_volume" value="125000.00"/>
+            <column name="first_transaction_date" value="2023-06-01"/>
+            <column name="last_transaction_date" value="2024-02-12"/>
+            <column name="relationship_strength" value="0.85"/>
+            <column name="content_text" value="Tan Siew Leng Trading has strong supplier relationship with Wong Brothers Enterprise. 25 transactions totaling RM125,000. Active business partnership."/>
+        </insert>
+
+        <insert tableName="customer_relationships">
+            <column name="relationship_id" value="2"/>
+            <column name="customer_id_1" value="8"/>
+            <column name="customer_id_2" value="10"/>
+            <column name="relationship_type" value="PARTNER"/>
+            <column name="transaction_count" value="18"/>
+            <column name="total_volume" value="54000.00"/>
+            <column name="first_transaction_date" value="2023-03-15"/>
+            <column name="last_transaction_date" value="2024-02-08"/>
+            <column name="relationship_strength" value="0.75"/>
+            <column name="content_text" value="Hassan &amp; Sons has partnership relationship with Lee Trading Company. 18 transactions totaling RM54,000. Regular business collaboration."/>
+        </insert>
+
+        <insert tableName="customer_relationships">
+            <column name="relationship_id" value="3"/>
+            <column name="customer_id_1" value="5"/>
+            <column name="customer_id_2" value="3"/>
+            <column name="relationship_type" value="CUSTOMER"/>
+            <column name="transaction_count" value="25"/>
+            <column name="total_volume" value="125000.00"/>
+            <column name="first_transaction_date" value="2023-06-01"/>
+            <column name="last_transaction_date" value="2024-02-12"/>
+            <column name="relationship_strength" value="0.85"/>
+            <column name="content_text" value="Wong Brothers Enterprise is a customer of Tan Siew Leng Trading. 25 transactions totaling RM125,000. Strong business relationship."/>
+        </insert>
+
+        <rollback>
+            <delete tableName="customer_relationships"/>
+            <delete tableName="digital_feature_usage"/>
+            <delete tableName="logins"/>
+            <delete tableName="transactions"/>
+            <delete tableName="customer_products"/>
+            <delete tableName="accounts"/>
+            <delete tableName="customers"/>
+            <delete tableName="products"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

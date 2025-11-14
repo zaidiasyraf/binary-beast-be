@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <include file="db/changelog/changes/001-create-pgvector-extension.xml"/>
+    <include file="db/changelog/changes/002-create-customers-table.xml"/>
+    <include file="db/changelog/changes/003-create-accounts-table.xml"/>
+    <include file="db/changelog/changes/004-create-transactions-table.xml"/>
+    <include file="db/changelog/changes/005-create-customer-relationships-table.xml"/>
+    <include file="db/changelog/changes/006-create-logins-table.xml"/>
+    <include file="db/changelog/changes/007-create-digital-feature-usage-table.xml"/>
+    <include file="db/changelog/changes/008-create-products-table.xml"/>
+    <include file="db/changelog/changes/009-create-customer-products-table.xml"/>
+    <include file="db/changelog/changes/010-insert-fake-data.xml"/>
+
+</databaseChangeLog>
+

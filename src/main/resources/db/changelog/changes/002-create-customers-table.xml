@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="002-create-customers-table" author="system">
+        <createTable tableName="customers">
+            <column name="customer_id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer_segment" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="phone" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="address" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="city" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="state" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="postal_code" type="VARCHAR(20)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="country" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="registration_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="classification" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="embedding" type="vector(1024)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="transaction_frequency" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="login_frequency" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="savings_deposit_frequency" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="month_over_month_growth" type="DECIMAL(15,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="profitability_score" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="engagement_score" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="digital_feature_score" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="disengagement_risk_score" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="graduation_potential_score" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="content_text" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="idx_customers_embedding" tableName="customers">
+            <column name="embedding" type="vector(1024)"/>
+        </createIndex>
+
+        <sql>
+            CREATE INDEX ON customers USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            CREATE INDEX idx_customers_type ON customers(customer_type);
+            CREATE INDEX idx_customers_segment ON customers(customer_segment);
+            CREATE INDEX idx_customers_profitability ON customers(profitability_score DESC);
+            CREATE INDEX idx_customers_status ON customers(status);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="customers"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

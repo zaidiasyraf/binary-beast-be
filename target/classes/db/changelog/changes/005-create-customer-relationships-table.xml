@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-create-customer-relationships-table" author="system">
+        <createTable tableName="customer_relationships">
+            <column name="relationship_id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id_1" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id_2" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="relationship_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="transaction_count" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="total_volume" type="DECIMAL(15,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="first_transaction_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_transaction_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column name="relationship_strength" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="embedding" type="vector(1024)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="content_text" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="customer_relationships"
+                baseColumnNames="customer_id_1"
+                constraintName="fk_relationships_customer1"
+                referencedTableName="customers"
+                referencedColumnNames="customer_id"
+                onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint
+                baseTableName="customer_relationships"
+                baseColumnNames="customer_id_2"
+                constraintName="fk_relationships_customer2"
+                referencedTableName="customers"
+                referencedColumnNames="customer_id"
+                onDelete="CASCADE"/>
+
+        <sql>
+            CREATE INDEX ON customer_relationships USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            CREATE INDEX idx_relationships_customer1 ON customer_relationships(customer_id_1);
+            CREATE INDEX idx_relationships_customer2 ON customer_relationships(customer_id_2);
+            CREATE INDEX idx_relationships_type ON customer_relationships(relationship_type);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="customer_relationships"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

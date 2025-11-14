@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="008-create-products-table" author="system">
+        <createTable tableName="products">
+            <column name="product_id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="product_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="product_category" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="margin_rate" type="DECIMAL(5,2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <sql>
+            CREATE INDEX idx_products_type ON products(product_type);
+            CREATE INDEX idx_products_category ON products(product_category);
+        </sql>
+
+        <rollback>
+            <dropTable tableName="products"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+
