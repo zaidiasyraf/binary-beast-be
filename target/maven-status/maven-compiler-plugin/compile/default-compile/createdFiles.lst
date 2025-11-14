@@ -6,12 +6,14 @@ com/example/bedrock/entity/Customer.class
 com/example/bedrock/repository/DigitalFeatureUsageRepository.class
 com/example/bedrock/service/ConversationService.class
 com/example/bedrock/entity/Product.class
+com/example/bedrock/service/EmbeddingService.class
 com/example/bedrock/dto/ChatRequest.class
 com/example/bedrock/entity/CustomerProduct.class
 com/example/bedrock/repository/LoginRepository.class
 com/example/bedrock/entity/Account.class
 com/example/bedrock/repository/CustomerRepository.class
 com/example/bedrock/entity/CustomerRelationship.class
+com/example/bedrock/service/RAGService.class
 com/example/bedrock/dto/ChatRequest$Message.class
 com/example/bedrock/entity/DigitalFeatureUsage.class
 com/example/bedrock/repository/AccountRepository.class

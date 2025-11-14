@@ -15,6 +15,7 @@
     <include file="db/changelog/changes/008-create-products-table.xml"/>
     <include file="db/changelog/changes/009-create-customer-products-table.xml"/>
     <include file="db/changelog/changes/010-insert-fake-data.xml"/>
+    <include file="db/changelog/changes/011-update-vector-dimensions.xml"/>
 
 </databaseChangeLog>
 

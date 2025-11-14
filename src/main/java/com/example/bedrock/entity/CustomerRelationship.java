@@ -42,7 +42,7 @@ public class CustomerRelationship {
     @Column(name = "relationship_strength", precision = 5, scale = 2)
     private BigDecimal relationshipStrength;
     
-    @Column(name = "embedding", columnDefinition = "vector(1024)")
+    @Column(name = "embedding", columnDefinition = "vector(1536)")
     private String embedding;
     
     @Column(name = "content_text", columnDefinition = "TEXT")

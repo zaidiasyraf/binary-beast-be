@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="011-update-vector-dimensions" author="system">
+        <comment>Update vector columns from 1024 to 1536 dimensions to match Titan Embeddings model</comment>
+        
+        <!-- Drop indexes that reference embedding columns -->
+        <sql>
+            DROP INDEX IF EXISTS idx_customers_embedding;
+            DROP INDEX IF EXISTS customers_embedding_idx;
+        </sql>
+        
+        <sql>
+            DROP INDEX IF EXISTS idx_accounts_embedding;
+            DROP INDEX IF EXISTS accounts_embedding_idx;
+        </sql>
+        
+        <sql>
+            DROP INDEX IF EXISTS idx_transactions_embedding;
+            DROP INDEX IF EXISTS transactions_embedding_idx;
+        </sql>
+        
+        <sql>
+            DROP INDEX IF EXISTS idx_customer_relationships_embedding;
+            DROP INDEX IF EXISTS customer_relationships_embedding_idx;
+        </sql>
+
+        <!-- Update customers table embedding column -->
+        <sql>
+            ALTER TABLE customers 
+            ALTER COLUMN embedding TYPE vector(1536) USING embedding::text::vector;
+        </sql>
+        
+        <!-- Update accounts table embedding column -->
+        <sql>
+            ALTER TABLE accounts 
+            ALTER COLUMN embedding TYPE vector(1536) USING embedding::text::vector;
+        </sql>
+        
+        <!-- Update transactions table embedding column -->
+        <sql>
+            ALTER TABLE transactions 
+            ALTER COLUMN embedding TYPE vector(1536) USING embedding::text::vector;
+        </sql>
+        
+        <!-- Update customer_relationships table embedding column -->
+        <sql>
+            ALTER TABLE customer_relationships 
+            ALTER COLUMN embedding TYPE vector(1536) USING embedding::text::vector;
+        </sql>
+
+        <!-- Recreate indexes with new dimension -->
+        <sql>
+            CREATE INDEX ON customers USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+        </sql>
+        
+        <sql>
+            CREATE INDEX ON accounts USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+        </sql>
+        
+        <sql>
+            CREATE INDEX ON transactions USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+        </sql>
+        
+        <sql>
+            CREATE INDEX ON customer_relationships USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+        </sql>
+
+        <rollback>
+            <!-- Rollback: Change back to 1024 dimensions -->
+            <sql>
+                DROP INDEX IF EXISTS idx_customers_embedding;
+                DROP INDEX IF EXISTS customers_embedding_idx;
+                ALTER TABLE customers ALTER COLUMN embedding TYPE vector(1024) USING embedding::text::vector;
+                CREATE INDEX ON customers USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            </sql>
+            <sql>
+                DROP INDEX IF EXISTS idx_accounts_embedding;
+                DROP INDEX IF EXISTS accounts_embedding_idx;
+                ALTER TABLE accounts ALTER COLUMN embedding TYPE vector(1024) USING embedding::text::vector;
+                CREATE INDEX ON accounts USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            </sql>
+            <sql>
+                DROP INDEX IF EXISTS idx_transactions_embedding;
+                DROP INDEX IF EXISTS transactions_embedding_idx;
+                ALTER TABLE transactions ALTER COLUMN embedding TYPE vector(1024) USING embedding::text::vector;
+                CREATE INDEX ON transactions USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            </sql>
+            <sql>
+                DROP INDEX IF EXISTS idx_customer_relationships_embedding;
+                DROP INDEX IF EXISTS customer_relationships_embedding_idx;
+                ALTER TABLE customer_relationships ALTER COLUMN embedding TYPE vector(1024) USING embedding::text::vector;
+                CREATE INDEX ON customer_relationships USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

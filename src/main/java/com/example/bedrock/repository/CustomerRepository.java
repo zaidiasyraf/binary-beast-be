@@ -2,9 +2,11 @@ package com.example.bedrock.repository;
 
 import com.example.bedrock.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,10 +22,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findByClassification(String classification);
     
     // Vector similarity search using cosine distance
-    @Query(value = "SELECT c.*, 1 - (c.embedding <=> CAST(:embedding AS vector)) AS similarity " +
+    @Query(value = "SELECT c.*, 1 - (c.embedding <=> CAST(:embedding AS vector(1536))) AS similarity " +
                    "FROM customers c " +
                    "WHERE c.embedding IS NOT NULL " +
-                   "ORDER BY c.embedding <=> CAST(:embedding AS vector) " +
+                   "ORDER BY c.embedding <=> CAST(:embedding AS vector(1536)) " +
                    "LIMIT :limit", nativeQuery = true)
     List<Customer> findSimilarCustomers(@Param("embedding") String embedding, @Param("limit") int limit);
     
@@ -39,5 +41,11 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     // Find customers with graduation potential
     @Query("SELECT c FROM Customer c WHERE c.graduationPotentialScore >= :threshold ORDER BY c.graduationPotentialScore DESC")
     List<Customer> findGraduationPotentialCustomers(@Param("threshold") java.math.BigDecimal threshold);
+    
+    // Update embedding with proper vector casting
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE customers SET embedding = CAST(:embedding AS vector(1536)) WHERE customer_id = :customerId", nativeQuery = true)
+    void updateCustomerEmbedding(@Param("customerId") Long customerId, @Param("embedding") String embedding);
 }
 

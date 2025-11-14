@@ -35,7 +35,7 @@ public class Account {
     @Column(name = "status", length = 50)
     private String status; // ACTIVE, CLOSED, FROZEN
     
-    @Column(name = "embedding", columnDefinition = "vector(1024)")
+    @Column(name = "embedding", columnDefinition = "vector(1536)")
     private String embedding;
     
     @Column(name = "content_text", columnDefinition = "TEXT")

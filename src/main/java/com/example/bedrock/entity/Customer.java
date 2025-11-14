@@ -57,7 +57,7 @@ public class Customer {
     
     // Vector embedding stored as PostgreSQL vector type
     // Note: Will need custom type converter for proper handling
-    @Column(name = "embedding", columnDefinition = "vector(1024)")
+    @Column(name = "embedding", columnDefinition = "vector(1536)")
     private String embedding;
     
     // Pre-computed metrics

@@ -2,9 +2,11 @@ package com.example.bedrock.repository;
 
 import com.example.bedrock.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,10 +20,10 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findByStatus(String status);
     
     // Vector similarity search
-    @Query(value = "SELECT a.*, 1 - (a.embedding <=> CAST(:embedding AS vector)) AS similarity " +
+    @Query(value = "SELECT a.*, 1 - (a.embedding <=> CAST(:embedding AS vector(1536))) AS similarity " +
                    "FROM accounts a " +
                    "WHERE a.embedding IS NOT NULL " +
-                   "ORDER BY a.embedding <=> CAST(:embedding AS vector) " +
+                   "ORDER BY a.embedding <=> CAST(:embedding AS vector(1536)) " +
                    "LIMIT :limit", nativeQuery = true)
     List<Account> findSimilarAccounts(@Param("embedding") String embedding, @Param("limit") int limit);
     
@@ -29,5 +31,11 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     @Query("SELECT a FROM Account a WHERE a.customer.customerId = :customerId AND a.accountType = :accountType")
     List<Account> findByCustomerIdAndAccountType(@Param("customerId") Long customerId, 
                                                   @Param("accountType") String accountType);
+    
+    // Update embedding with proper vector casting
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE accounts SET embedding = CAST(:embedding AS vector(1536)) WHERE account_id = :accountId", nativeQuery = true)
+    void updateAccountEmbedding(@Param("accountId") Long accountId, @Param("embedding") String embedding);
 }
 
