@@ -1,0 +1,7 @@
+com/example/bedrock/config/BedrockConfig.class
+com/example/bedrock/dto/ChatRequest$Message.class
+com/example/bedrock/dto/ChatRequest.class
+com/example/bedrock/dto/ChatResponse.class
+com/example/bedrock/controller/BedrockController.class
+com/example/bedrock/BedrockApplication.class
+com/example/bedrock/service/BedrockService.class
