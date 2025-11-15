@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM amazoncorretto:17-alpine
 
 VOLUME /tmp
 COPY target/*.jar app.jar
