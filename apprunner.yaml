@@ -14,6 +14,12 @@ run:
     - name: SERVER_PORT
       value: "8080"
     - name: AWS_REGION
-      value: "us-east-1"
+      value: "ap-southeast-1"
     - name: SPRING_PROFILES_ACTIVE
-      value: "production"
+      value: "apprunner"
+    - name: SPRING_DATASOURCE_URL
+      value: "jdbc:postgresql://database-1.cluster-ct8k2m8uiz5p.ap-southeast-1.rds.amazonaws.com:5432/postgres"
+    - name: SPRING_DATASOURCE_USERNAME
+      value: "postgres"
+    - name: SPRING_DATASOURCE_PASSWORD
+      value: "BinaryBeast4"
