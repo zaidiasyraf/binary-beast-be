@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="012-business-intelligence-data" author="system">
+        
+        <!-- SCENARIO 1: Hidden Business Owners in Personal Accounts -->
+        <insert tableName="customers">
+            <column name="customer_id" value="11"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Ahmad Food Stall"/>
+            <column name="email" value="ahmad.food@email.com"/>
+            <column name="phone" value="+60123456811"/>
+            <column name="address" value="Lot 15, Jalan Pasar Malam, Chow Kit"/>
+            <column name="city" value="Kuala Lumpur"/>
+            <column name="state" value="Wilayah Persekutuan"/>
+            <column name="postal_code" value="50300"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-04-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="HIDDEN_BUSINESS"/>
+            <column name="transaction_frequency" value="85"/>
+            <column name="login_frequency" value="25"/>
+            <column name="savings_deposit_frequency" value="20"/>
+            <column name="month_over_month_growth" value="18.50"/>
+            <column name="profitability_score" value="0.70"/>
+            <column name="engagement_score" value="0.75"/>
+            <column name="digital_feature_score" value="60.00"/>
+            <column name="disengagement_risk_score" value="0.20"/>
+            <column name="graduation_potential_score" value="0.90"/>
+            <column name="content_text" value="Ahmad operates food stall using personal account. Daily cash deposits RM500-800 from food sales. Regular bulk purchases from suppliers. Weekend peak sales. Monthly revenue RM15,000 plus but classified as individual. Business patterns: daily deposits, supplier payments, high transaction velocity."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="12"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Siti Online Shop"/>
+            <column name="email" value="siti.shop@email.com"/>
+            <column name="phone" value="+60123456812"/>
+            <column name="address" value="23A, Jalan Kenanga, Bandar Baru Bangi"/>
+            <column name="city" value="Bangi"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="43650"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-02-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="HIDDEN_BUSINESS"/>
+            <column name="transaction_frequency" value="95"/>
+            <column name="login_frequency" value="40"/>
+            <column name="savings_deposit_frequency" value="25"/>
+            <column name="month_over_month_growth" value="25.30"/>
+            <column name="profitability_score" value="0.75"/>
+            <column name="engagement_score" value="0.80"/>
+            <column name="digital_feature_score" value="75.00"/>
+            <column name="disengagement_risk_score" value="0.15"/>
+            <column name="graduation_potential_score" value="0.95"/>
+            <column name="content_text" value="Siti runs e-commerce business through personal account. Shopee seller fees, Lazada commissions, international transfers to China suppliers. Monthly turnover RM20,000. E-commerce patterns: platform fees, wholesale purchases, international payments."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="13"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="T20"/>
+            <column name="name" value="Lim IT Services"/>
+            <column name="email" value="lim.it@email.com"/>
+            <column name="phone" value="+60123456813"/>
+            <column name="address" value="45, Lorong Delima 3, Taman Johor Jaya"/>
+            <column name="city" value="Johor Bahru"/>
+            <column name="state" value="Johor"/>
+            <column name="postal_code" value="81100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2022-11-08"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="HIDDEN_BUSINESS"/>
+            <column name="transaction_frequency" value="65"/>
+            <column name="login_frequency" value="30"/>
+            <column name="savings_deposit_frequency" value="15"/>
+            <column name="month_over_month_growth" value="22.80"/>
+            <column name="profitability_score" value="0.85"/>
+            <column name="engagement_score" value="0.78"/>
+            <column name="digital_feature_score" value="80.00"/>
+            <column name="disengagement_risk_score" value="0.18"/>
+            <column name="graduation_potential_score" value="0.88"/>
+            <column name="content_text" value="Lim provides IT consulting through personal account. Multiple corporate client payments, equipment purchases, software subscriptions. Monthly income RM35,000. Professional service patterns: business to business payments, business expenses, client invoicing."/>
+        </insert>
+
+        <!-- SCENARIO 2: Disengaged Customers -->
+        <insert tableName="customers">
+            <column name="customer_id" value="14"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Fatimah Teacher"/>
+            <column name="email" value="fatimah.teacher@email.com"/>
+            <column name="phone" value="+60123456814"/>
+            <column name="address" value="12, Jalan Ros, Taman Melur"/>
+            <column name="city" value="Bukit Mertajam"/>
+            <column name="state" value="Penang"/>
+            <column name="postal_code" value="14000"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2022-05-12"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="DISENGAGED"/>
+            <column name="transaction_frequency" value="8"/>
+            <column name="login_frequency" value="3"/>
+            <column name="savings_deposit_frequency" value="2"/>
+            <column name="month_over_month_growth" value="-15.50"/>
+            <column name="profitability_score" value="0.35"/>
+            <column name="engagement_score" value="0.25"/>
+            <column name="digital_feature_score" value="20.00"/>
+            <column name="disengagement_risk_score" value="0.85"/>
+            <column name="graduation_potential_score" value="0.10"/>
+            <column name="content_text" value="Fatimah showing disengagement signs. Login frequency dropped from daily to weekly. Transaction volume decreased 60%. Previously active digital user now prefers branch visits. Reduced mobile app usage. Risk of churning to competitor banks."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="15"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="T20"/>
+            <column name="name" value="Raj Engineer"/>
+            <column name="email" value="raj.engineer@email.com"/>
+            <column name="phone" value="+60123456815"/>
+            <column name="address" value="78, Jalan Mayang, Taman Sri Muda"/>
+            <column name="city" value="Shah Alam"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="40400"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2020-09-30"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="DISENGAGED"/>
+            <column name="transaction_frequency" value="5"/>
+            <column name="login_frequency" value="1"/>
+            <column name="savings_deposit_frequency" value="1"/>
+            <column name="month_over_month_growth" value="-25.00"/>
+            <column name="profitability_score" value="0.25"/>
+            <column name="engagement_score" value="0.15"/>
+            <column name="digital_feature_score" value="15.00"/>
+            <column name="disengagement_risk_score" value="0.95"/>
+            <column name="graduation_potential_score" value="0.05"/>
+            <column name="content_text" value="Raj high-value customer with declining engagement. Last login 45 days ago. Salary deposited but immediately transferred to competitor bank. Stopped using digital banking. Previously multi-product customer now at churn risk."/>
+        </insert>
+
+        <!-- SCENARIO 3: Geographic Under-penetration -->
+        <insert tableName="customers">
+            <column name="customer_id" value="16"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Hafiz Fisherman"/>
+            <column name="email" value="hafiz.fish@email.com"/>
+            <column name="phone" value="+60123456816"/>
+            <column name="address" value="Kampung Pantai"/>
+            <column name="city" value="Marang"/>
+            <column name="state" value="Terengganu"/>
+            <column name="postal_code" value="21600"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-04-25"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="UNDERSERVED"/>
+            <column name="transaction_frequency" value="15"/>
+            <column name="login_frequency" value="8"/>
+            <column name="savings_deposit_frequency" value="4"/>
+            <column name="month_over_month_growth" value="8.20"/>
+            <column name="profitability_score" value="0.40"/>
+            <column name="engagement_score" value="0.45"/>
+            <column name="digital_feature_score" value="30.00"/>
+            <column name="disengagement_risk_score" value="0.35"/>
+            <column name="graduation_potential_score" value="0.60"/>
+            <column name="content_text" value="Hafiz represents under-penetrated East Coast market. Limited banking products awareness. Seasonal fishing income. Potential for Islamic banking, micro-financing. Geographic opportunity in Terengganu fishing communities."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="17"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Maria Tourism"/>
+            <column name="email" value="maria.tourism@email.com"/>
+            <column name="phone" value="+60123456817"/>
+            <column name="address" value="Lot 234, Jalan Tuaran"/>
+            <column name="city" value="Kota Kinabalu"/>
+            <column name="state" value="Sabah"/>
+            <column name="postal_code" value="88400"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-08-14"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="UNDERSERVED"/>
+            <column name="transaction_frequency" value="22"/>
+            <column name="login_frequency" value="12"/>
+            <column name="savings_deposit_frequency" value="6"/>
+            <column name="month_over_month_growth" value="12.50"/>
+            <column name="profitability_score" value="0.55"/>
+            <column name="engagement_score" value="0.60"/>
+            <column name="digital_feature_score" value="45.00"/>
+            <column name="disengagement_risk_score" value="0.30"/>
+            <column name="graduation_potential_score" value="0.70"/>
+            <column name="content_text" value="Maria from Sabah tourism industry. Under-served East Malaysia market. Seasonal tourism income. Limited branch access but growing digital adoption. Geographic expansion opportunity for Sabah/Sarawak with tourism-focused products."/>
+        </insert>
+
+        <!-- SCENARIO 4: SMEs on the Rise -->
+        <insert tableName="customers">
+            <column name="customer_id" value="18"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="T20"/>
+            <column name="name" value="Nurul Tech Startup"/>
+            <column name="email" value="nurul.tech@email.com"/>
+            <column name="phone" value="+60123456818"/>
+            <column name="address" value="15-2, Jalan PJU 5/1, Kota Damansara"/>
+            <column name="city" value="Petaling Jaya"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="47810"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2022-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="RISING_SME"/>
+            <column name="transaction_frequency" value="150"/>
+            <column name="login_frequency" value="80"/>
+            <column name="savings_deposit_frequency" value="30"/>
+            <column name="month_over_month_growth" value="45.80"/>
+            <column name="profitability_score" value="0.95"/>
+            <column name="engagement_score" value="0.98"/>
+            <column name="digital_feature_score" value="95.00"/>
+            <column name="disengagement_risk_score" value="0.02"/>
+            <column name="graduation_potential_score" value="0.15"/>
+            <column name="content_text" value="Nurul runs fintech startup with 300 percent growth. Monthly turnover RM150,000 plus. Seeking Series A funding. International operations, payroll processing. Ready for premium SME banking, business loans, trade finance."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="19"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="David Restaurant Chain"/>
+            <column name="email" value="david.restaurant@email.com"/>
+            <column name="phone" value="+60123456819"/>
+            <column name="address" value="88, Jalan SS15/4D, Subang Jaya"/>
+            <column name="city" value="Subang Jaya"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="47500"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2021-02-28"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="RISING_SME"/>
+            <column name="transaction_frequency" value="180"/>
+            <column name="login_frequency" value="90"/>
+            <column name="savings_deposit_frequency" value="35"/>
+            <column name="month_over_month_growth" value="35.20"/>
+            <column name="profitability_score" value="0.88"/>
+            <column name="engagement_score" value="0.92"/>
+            <column name="digital_feature_score" value="85.00"/>
+            <column name="disengagement_risk_score" value="0.05"/>
+            <column name="graduation_potential_score" value="0.20"/>
+            <column name="content_text" value="David operates 4 restaurant outlets, planning expansion to 7. Monthly revenue RM250,000 plus. Equipment financing needs, working capital requirements. F and B growth business ready for comprehensive SME banking and expansion loans."/>
+        </insert>
+
+        <!-- SCENARIO 5: Business Clusters -->
+        <insert tableName="customers">
+            <column name="customer_id" value="20"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Aminah Textile Supply"/>
+            <column name="email" value="aminah.textile@email.com"/>
+            <column name="phone" value="+60123456820"/>
+            <column name="address" value="Lot 12, Jalan Tekstil, Kawasan Perindustrian Batu Caves"/>
+            <column name="city" value="Batu Caves"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="68100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2021-07-05"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="CLUSTER_LEADER"/>
+            <column name="transaction_frequency" value="120"/>
+            <column name="login_frequency" value="65"/>
+            <column name="savings_deposit_frequency" value="25"/>
+            <column name="month_over_month_growth" value="28.40"/>
+            <column name="profitability_score" value="0.82"/>
+            <column name="engagement_score" value="0.85"/>
+            <column name="digital_feature_score" value="78.00"/>
+            <column name="disengagement_risk_score" value="0.12"/>
+            <column name="graduation_potential_score" value="0.25"/>
+            <column name="content_text" value="Aminah supplies textiles to 15 plus garment manufacturers. Central hub in textile ecosystem. Regular transactions with same suppliers and customers. Business cluster opportunity for supply chain financing and trade services."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="21"/>
+            <column name="customer_type" value="SME"/>
+            <column name="customer_segment" value="M40"/>
+            <column name="name" value="Chong Garment Factory"/>
+            <column name="email" value="chong.garment@email.com"/>
+            <column name="phone" value="+60123456821"/>
+            <column name="address" value="Lot 25, Jalan Industri, Kawasan Perindustrian Batu Caves"/>
+            <column name="city" value="Batu Caves"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="68100"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2020-09-18"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="CLUSTER_MEMBER"/>
+            <column name="transaction_frequency" value="95"/>
+            <column name="login_frequency" value="50"/>
+            <column name="savings_deposit_frequency" value="20"/>
+            <column name="month_over_month_growth" value="18.60"/>
+            <column name="profitability_score" value="0.75"/>
+            <column name="engagement_score" value="0.78"/>
+            <column name="digital_feature_score" value="70.00"/>
+            <column name="disengagement_risk_score" value="0.15"/>
+            <column name="graduation_potential_score" value="0.30"/>
+            <column name="content_text" value="Chong manufactures garments, frequent transactions with Aminah Textile Supply and other cluster members. Part of textile business ecosystem. Regular supplier payments and customer receipts within same industrial area."/>
+        </insert>
+
+        <!-- SCENARIO 6: B40 Customers Needing Education -->
+        <insert tableName="customers">
+            <column name="customer_id" value="22"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Salmah Cleaner"/>
+            <column name="email" value="salmah.cleaner@email.com"/>
+            <column name="phone" value="+60123456822"/>
+            <column name="address" value="Flat 3-2, PPR Kota Damansara"/>
+            <column name="city" value="Petaling Jaya"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="47810"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-07-20"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="NEEDS_EDUCATION"/>
+            <column name="transaction_frequency" value="8"/>
+            <column name="login_frequency" value="2"/>
+            <column name="savings_deposit_frequency" value="1"/>
+            <column name="month_over_month_growth" value="2.50"/>
+            <column name="profitability_score" value="0.20"/>
+            <column name="engagement_score" value="0.15"/>
+            <column name="digital_feature_score" value="10.00"/>
+            <column name="disengagement_risk_score" value="0.40"/>
+            <column name="graduation_potential_score" value="0.70"/>
+            <column name="content_text" value="Salmah works as cleaner, limited digital literacy. Only uses ATM for cash withdrawal. Needs financial education on savings, budgeting, digital banking. High potential for financial inclusion programs and basic banking education."/>
+        </insert>
+
+        <insert tableName="customers">
+            <column name="customer_id" value="23"/>
+            <column name="customer_type" value="PERSONAL"/>
+            <column name="customer_segment" value="B40"/>
+            <column name="name" value="Kumar Security Guard"/>
+            <column name="email" value="kumar.security@email.com"/>
+            <column name="phone" value="+60123456823"/>
+            <column name="address" value="No. 8, Taman Bahagia, Ampang"/>
+            <column name="city" value="Ampang"/>
+            <column name="state" value="Selangor"/>
+            <column name="postal_code" value="68000"/>
+            <column name="country" value="Malaysia"/>
+            <column name="registration_date" value="2023-09-05"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="classification" value="NEEDS_EDUCATION"/>
+            <column name="transaction_frequency" value="6"/>
+            <column name="login_frequency" value="1"/>
+            <column name="savings_deposit_frequency" value="1"/>
+            <column name="month_over_month_growth" value="1.20"/>
+            <column name="profitability_score" value="0.18"/>
+            <column name="engagement_score" value="0.12"/>
+            <column name="digital_feature_score" value="8.00"/>
+            <column name="disengagement_risk_score" value="0.45"/>
+            <column name="graduation_potential_score" value="0.65"/>
+            <column name="content_text" value="Kumar works night shifts as security guard. Basic banking needs, cash-based transactions. Requires financial literacy education on emergency funds, insurance, retirement planning. Target for financial wellness programs."/>
+        </insert>
+
+        <!-- Additional Accounts for new customers -->
+        <insert tableName="accounts">
+            <column name="account_id" value="13"/>
+            <column name="customer_id" value="11"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON011234567"/>
+            <column name="balance" value="15000.00"/>
+            <column name="opening_date" value="2023-04-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Ahmad's savings account showing business-like patterns with frequent deposits from food stall operations."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="14"/>
+            <column name="customer_id" value="12"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON012345678"/>
+            <column name="balance" value="28000.00"/>
+            <column name="opening_date" value="2023-02-15"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Siti's savings account with e-commerce business patterns and international transfers."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="15"/>
+            <column name="customer_id" value="13"/>
+            <column name="account_type" value="SAVINGS"/>
+            <column name="account_number" value="AEON013456789"/>
+            <column name="balance" value="45000.00"/>
+            <column name="opening_date" value="2022-11-08"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Lim's savings account with IT consulting business patterns and corporate client payments."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="16"/>
+            <column name="customer_id" value="18"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON018901234"/>
+            <column name="balance" value="180000.00"/>
+            <column name="opening_date" value="2022-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="Nurul Tech Startup business account with high-growth fintech operations."/>
+        </insert>
+
+        <insert tableName="accounts">
+            <column name="account_id" value="17"/>
+            <column name="customer_id" value="19"/>
+            <column name="account_type" value="BUSINESS"/>
+            <column name="account_number" value="AEON019012345"/>
+            <column name="balance" value="220000.00"/>
+            <column name="opening_date" value="2021-02-28"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="content_text" value="David Restaurant Chain business account with multi-outlet Food and Business operations."/>
+        </insert>
+
+        <!-- Additional Customer Products -->
+        <insert tableName="customer_products">
+            <column name="customer_id" value="11"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2023-04-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="85"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="18"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2022-06-10"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="150"/>
+        </insert>
+
+        <insert tableName="customer_products">
+            <column name="customer_id" value="19"/>
+            <column name="product_id" value="1"/>
+            <column name="enrollment_date" value="2021-02-28"/>
+            <column name="status" value="ACTIVE"/>
+            <column name="usage_frequency" value="180"/>
+        </insert>
+
+        <!-- Business Cluster Relationships -->
+        <insert tableName="customer_relationships">
+            <column name="relationship_id" value="4"/>
+            <column name="customer_id_1" value="20"/>
+            <column name="customer_id_2" value="21"/>
+            <column name="relationship_type" value="SUPPLIER"/>
+            <column name="transaction_count" value="45"/>
+            <column name="total_volume" value="180000.00"/>
+            <column name="first_transaction_date" value="2021-08-01"/>
+            <column name="last_transaction_date" value="2024-02-15"/>
+            <column name="relationship_strength" value="0.90"/>
+            <column name="content_text" value="Aminah Textile Supply is main supplier to Chong Garment Factory. 45 transactions totaling RM180,000. Strong textile business cluster relationship."/>
+        </insert>
+
+        <insert tableName="customer_relationships">
+            <column name="relationship_id" value="5"/>
+            <column name="customer_id_1" value="18"/>
+            <column name="customer_id_2" value="19"/>
+            <column name="relationship_type" value="PARTNER"/>
+            <column name="transaction_count" value="12"/>
+            <column name="total_volume" value="36000.00"/>
+            <column name="first_transaction_date" value="2023-01-10"/>
+            <column name="last_transaction_date" value="2024-02-10"/>
+            <column name="relationship_strength" value="0.70"/>
+            <column name="content_text" value="Nurul Tech provides POS system to David Restaurant Chain. 12 transactions totaling RM36,000. Tech-Food and Business partnership cluster."/>
+        </insert>
+
+        <!-- Sample Transactions for Business Intelligence -->
+        <insert tableName="transactions">
+            <column name="transaction_id" value="11"/>
+            <column name="account_id" value="13"/>
+            <column name="customer_id" value="11"/>
+            <column name="transaction_type" value="DEPOSIT"/>
+            <column name="amount" value="650.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-15"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_INCOME"/>
+            <column name="description" value="Daily food stall sales"/>
+            <column name="location" value="Kuala Lumpur"/>
+            <column name="content_text" value="Ahmad deposited RM650 from daily food stall sales. Hidden business pattern in personal account."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="12"/>
+            <column name="account_id" value="14"/>
+            <column name="customer_id" value="12"/>
+            <column name="transaction_type" value="TRANSFER"/>
+            <column name="amount" value="2500.00"/>
+            <column name="direction" value="OUTFLOW"/>
+            <column name="transaction_date" value="2024-02-14"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_PAYMENT"/>
+            <column name="description" value="Payment to China supplier"/>
+            <column name="location" value="Bangi"/>
+            <column name="content_text" value="Siti transferred RM2,500 to China supplier for e-commerce inventory. International business pattern."/>
+        </insert>
+
+        <insert tableName="transactions">
+            <column name="transaction_id" value="13"/>
+            <column name="account_id" value="16"/>
+            <column name="customer_id" value="18"/>
+            <column name="transaction_type" value="DEPOSIT"/>
+            <column name="amount" value="25000.00"/>
+            <column name="direction" value="INFLOW"/>
+            <column name="transaction_date" value="2024-02-12"/>
+            <column name="channel" value="DIGITAL"/>
+            <column name="category" value="BUSINESS_INCOME"/>
+            <column name="description" value="Client payment for fintech services"/>
+            <column name="location" value="Petaling Jaya"/>
+            <column name="content_text" value="Nurul Tech received RM25,000 client payment. High-growth SME with expansion potential."/>
+        </insert>
+
+        <!-- Login patterns for disengaged customers -->
+        <insert tableName="logins">
+            <column name="login_id" value="6"/>
+            <column name="customer_id" value="14"/>
+            <column name="login_date" value="2024-01-20 10:30:00"/>
+            <column name="login_channel" value="MOBILE_APP"/>
+            <column name="session_duration" value="120"/>
+            <column name="device_type" value="Android"/>
+        </insert>
+
+        <insert tableName="logins">
+            <column name="login_id" value="7"/>
+            <column name="customer_id" value="15"/>
+            <column name="login_date" value="2024-01-05 14:15:00"/>
+            <column name="login_channel" value="WEB"/>
+            <column name="session_duration" value="60"/>
+            <column name="device_type" value="Desktop"/>
+        </insert>
+
+        <!-- Digital feature usage patterns -->
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="13"/>
+            <column name="customer_id" value="11"/>
+            <column name="feature_name" value="QR_PAY"/>
+            <column name="usage_count" value="50"/>
+            <column name="last_used_date" value="2024-02-15"/>
+            <column name="usage_frequency" value="DAILY"/>
+            <column name="score" value="60.00"/>
+        </insert>
+
+        <insert tableName="digital_feature_usage">
+            <column name="usage_id" value="14"/>
+            <column name="customer_id" value="22"/>
+            <column name="feature_name" value="ATM_WITHDRAWAL"/>
+            <column name="usage_count" value="8"/>
+            <column name="last_used_date" value="2024-02-10"/>
+            <column name="usage_frequency" value="WEEKLY"/>
+            <column name="score" value="10.00"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
