@@ -46,6 +46,17 @@ public class RAGService {
      */
     public ChatResponse chatWithRAG(ChatRequest request) {
         try {
+            // Log conversation history for debugging
+            if (request.getConversationHistory() != null && !request.getConversationHistory().isEmpty()) {
+                logger.info("Processing RAG request with {} previous messages", request.getConversationHistory().size());
+                for (int i = 0; i < request.getConversationHistory().size(); i++) {
+                    ChatRequest.Message msg = request.getConversationHistory().get(i);
+                    logger.debug("History[{}]: {} - {}", i, msg.getRole(), msg.getContent().substring(0, Math.min(100, msg.getContent().length())));
+                }
+            } else {
+                logger.info("Processing RAG request with no conversation history");
+            }
+            
             // Generate embedding for the user query
             logger.info("Generating embedding for query: {}", request.getMessage());
             List<Float> queryEmbedding = embeddingService.generateEmbedding(request.getMessage());
@@ -62,11 +73,11 @@ public class RAGService {
                 logger.warn("Please run: POST /api/bedrock/rag/generate-embeddings");
             }
 
-            // Build enhanced prompt with context
-            String enhancedMessage = buildEnhancedPrompt(request.getMessage(), contextItems);
+            // Build enhanced prompt with context and conversation history
+            String enhancedMessage = buildEnhancedPrompt(request.getMessage(), contextItems, request.getConversationHistory());
             logger.debug("Enhanced prompt length: {}", enhancedMessage.length());
 
-            // Create new request with enhanced message
+            // Create new request with enhanced message but keep original conversation history
             ChatRequest enhancedRequest = new ChatRequest();
             enhancedRequest.setMessage(enhancedMessage);
             enhancedRequest.setConversationHistory(request.getConversationHistory());
@@ -150,19 +161,31 @@ public class RAGService {
     /**
      * Build enhanced prompt with retrieved context
      */
-    private String buildEnhancedPrompt(String userQuery, List<String> contextItems) {
-        if (contextItems.isEmpty()) {
-            return userQuery;
-        }
-
+    private String buildEnhancedPrompt(String userQuery, List<String> contextItems, List<ChatRequest.Message> conversationHistory) {
         StringBuilder prompt = new StringBuilder();
-        prompt.append("You are a helpful assistant for Aeon Bank Malaysia. Use the following context information to answer the user's question accurately.\n\n");
-        prompt.append("Context Information:\n");
-        for (int i = 0; i < contextItems.size(); i++) {
-            prompt.append((i + 1)).append(". ").append(contextItems.get(i)).append("\n");
+        prompt.append("You are a super finance advisor for Aeon Bank Malaysia.");
+        
+        // Add conversation context if available
+        if (conversationHistory != null && !conversationHistory.isEmpty()) {
+            prompt.append(" You have access to the conversation history and should reference it when appropriate.");
         }
+        
+        // Add retrieved context if available
+        if (!contextItems.isEmpty()) {
+            prompt.append(" Use the following context information to answer the user's question accurately and do give suggestion on good action items in a new paragraph.\n\n");
+            prompt.append("Context Information:\n");
+            for (int i = 0; i < contextItems.size(); i++) {
+                prompt.append((i + 1)).append(". ").append(contextItems.get(i)).append("\n");
+            }
+        } else {
+            prompt.append("\n\n");
+        }
+        
         prompt.append("\nUser Question: ").append(userQuery);
-        prompt.append("\n\nPlease provide a helpful answer based on the context above. If the context doesn't contain relevant information, say so.");
+        
+        if (!contextItems.isEmpty()) {
+            prompt.append("\n\nPlease provide a helpful answer based on the context above and conversation history. If the context doesn't contain relevant information, use your general banking knowledge and conversation history to help.");
+        }
 
         return prompt.toString();
     }

@@ -22,6 +22,7 @@ com/example/bedrock/repository/CustomerRelationshipRepository.class
 com/example/bedrock/config/BedrockConfig.class
 com/example/bedrock/repository/CustomerProductRepository.class
 com/example/bedrock/entity/Login.class
+com/example/bedrock/controller/HealthController.class
 com/example/bedrock/dto/ChatResponse.class
 com/example/bedrock/service/BedrockService.class
 com/example/bedrock/repository/ProductRepository.class

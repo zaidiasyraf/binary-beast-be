@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#45B7D1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#96CEB4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEAA7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDA0DD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    Aeon Bank AI-Powered RAG Architecture
+  </text>
+  
+  <!-- Client Layer -->
+  <rect x="50" y="70" width="200" height="80" rx="10" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="150" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Client Applications</text>
+  <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Web/Mobile/API Clients</text>
+  <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Banking Interface</text>
+  
+  <!-- API Endpoints Layer -->
+  <rect x="350" y="70" width="800" height="80" rx="10" fill="url(#apiGradient)" stroke="#fdcb6e" stroke-width="2"/>
+  <text x="750" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2d3436">🚀 REST API ENDPOINTS</text>
+  
+  <rect x="370" y="100" width="150" height="40" rx="5" fill="rgba(255,255,255,0.8)" stroke="#e17055" stroke-width="1"/>
+  <text x="445" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2d3436">/chat</text>
+  <text x="445" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Standard Chat</text>
+  
+  <rect x="540" y="100" width="150" height="40" rx="5" fill="rgba(255,255,255,0.8)" stroke="#e17055" stroke-width="1"/>
+  <text x="615" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2d3436">/chat/rag</text>
+  <text x="615" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">AI-Enhanced</text>
+  
+  <rect x="710" y="100" width="180" height="40" rx="5" fill="rgba(255,255,255,0.8)" stroke="#e17055" stroke-width="1"/>
+  <text x="800" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2d3436">/rag/generate-embeddings</text>
+  <text x="800" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Vector Setup</text>
+  
+  <rect x="910" y="100" width="150" height="40" rx="5" fill="rgba(255,255,255,0.8)" stroke="#e17055" stroke-width="1"/>
+  <text x="985" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2d3436">BedrockController</text>
+  <text x="985" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#636e72">Request Handler</text>
+  
+  <!-- AI Services Layer (Main Focus) -->
+  <rect x="50" y="180" width="1100" height="200" rx="15" fill="url(#aiGradient)" stroke="#e17055" stroke-width="3"/>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">🤖 AI PROCESSING LAYER</text>
+  
+  <!-- RAG Service -->
+  <rect x="80" y="230" width="180" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#d63031" stroke-width="2"/>
+  <text x="170" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">RAG Service</text>
+  <text x="170" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Query Processing</text>
+  <text x="170" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Context Retrieval</text>
+  <text x="170" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Prompt Enhancement</text>
+  <text x="170" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Vector Similarity</text>
+  <text x="170" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Fallback Logic</text>
+  
+  <!-- Embedding Service -->
+  <rect x="290" y="230" width="180" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#d63031" stroke-width="2"/>
+  <text x="380" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Embedding Service</text>
+  <text x="380" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Text → Vector</text>
+  <text x="380" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Titan Embeddings</text>
+  <text x="380" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Vector Formatting</text>
+  <text x="380" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Batch Processing</text>
+  <text x="380" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• PostgreSQL Vector</text>
+  
+  <!-- Bedrock Service -->
+  <rect x="500" y="230" width="180" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#d63031" stroke-width="2"/>
+  <text x="590" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Bedrock Service</text>
+  <text x="590" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Claude 3 Integration</text>
+  <text x="590" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Chat Completion</text>
+  <text x="590" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Retry Logic</text>
+  <text x="590" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Rate Limiting</text>
+  <text x="590" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Context Management</text>
+  
+  <!-- Conversation Service -->
+  <rect x="710" y="230" width="180" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#d63031" stroke-width="2"/>
+  <text x="800" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Conversation Service</text>
+  <text x="800" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Session Management</text>
+  <text x="800" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• History Tracking</text>
+  <text x="800" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Context Persistence</text>
+  <text x="800" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Memory Management</text>
+  <text x="800" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Multi-turn Chat</text>
+  
+  <!-- AWS Bedrock -->
+  <rect x="920" y="230" width="200" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#d63031" stroke-width="2"/>
+  <text x="1020" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">🔗 AWS Bedrock</text>
+  <text x="1020" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Claude 3 Sonnet</text>
+  <text x="1020" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Titan Embeddings</text>
+  <text x="1020" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Managed AI Models</text>
+  <text x="1020" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Serverless Inference</text>
+  <text x="1020" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Enterprise Security</text>
+  
+  <!-- Data Layer -->
+  <rect x="50" y="410" width="1100" height="200" rx="15" fill="url(#dbGradient)" stroke="#00b894" stroke-width="3"/>
+  <text x="600" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">💾 VECTOR DATABASE LAYER</text>
+  
+  <!-- PostgreSQL with pgvector -->
+  <rect x="80" y="460" width="200" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#00b894" stroke-width="2"/>
+  <text x="180" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">PostgreSQL + pgvector</text>
+  <text x="180" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Vector Storage</text>
+  <text x="180" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Similarity Search</text>
+  <text x="180" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Cosine Distance</text>
+  <text x="180" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Embedding Index</text>
+  <text x="180" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• ACID Compliance</text>
+  
+  <!-- Entity Tables -->
+  <rect x="310" y="460" width="150" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#00b894" stroke-width="2"/>
+  <text x="385" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Customer Data</text>
+  <text x="385" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Customers</text>
+  <text x="385" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Accounts</text>
+  <text x="385" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Transactions</text>
+  <text x="385" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Relationships</text>
+  <text x="385" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Products</text>
+  
+  <rect x="490" y="460" width="150" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#00b894" stroke-width="2"/>
+  <text x="565" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Vector Embeddings</text>
+  <text x="565" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Text → 1536D Vector</text>
+  <text x="565" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Semantic Search</text>
+  <text x="565" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Context Matching</text>
+  <text x="565" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Relevance Scoring</text>
+  <text x="565" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Auto-Generated</text>
+  
+  <!-- Repository Layer -->
+  <rect x="670" y="460" width="200" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#00b894" stroke-width="2"/>
+  <text x="770" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Repository Layer</text>
+  <text x="770" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• JPA Repositories</text>
+  <text x="770" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Custom Vector Queries</text>
+  <text x="770" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Similarity Functions</text>
+  <text x="770" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Batch Operations</text>
+  <text x="770" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Transaction Support</text>
+  
+  <!-- Data Ingestion -->
+  <rect x="900" y="460" width="200" height="120" rx="8" fill="rgba(255,255,255,0.9)" stroke="#00b894" stroke-width="2"/>
+  <text x="1000" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2d3436">Data Ingestion</text>
+  <text x="1000" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Bulk Import</text>
+  <text x="1000" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Real-time Updates</text>
+  <text x="1000" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Embedding Generation</text>
+  <text x="1000" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Data Validation</text>
+  <text x="1000" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#636e72">• Error Handling</text>
+  
+  <!-- Request Flow Arrows -->
+  <!-- Client to API Endpoints -->
+  <path d="M 250 110 L 350 110" stroke="#2d3436" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="300" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2d3436">HTTP Request</text>
+  
+  <!-- API Endpoints to AI Services -->
+  <path d="M 750 150 L 600 180" stroke="#2d3436" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="675" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2d3436">Route to Services</text>
+  
+  <!-- AI Services to Database -->
+  <path d="M 600 380 L 600 410" stroke="#2d3436" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="650" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#00b894">⚡ VECTOR SEARCH</text>
+  
+  <!-- AI Services to Bedrock -->
+  <path d="M 680 290 L 920 290" stroke="#e17055" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="800" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#d63031">🔥 AI MODEL CALLS</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2d3436"/>
+    </marker>
+  </defs>
+  
+  <!-- Request Flow Summary -->
+  <rect x="50" y="650" width="1100" height="120" rx="15" fill="#f8f9fa" stroke="#6c5ce7" stroke-width="3"/>
+  <text x="600" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2d3436">📊 REQUEST FLOW SUMMARY</text>
+  
+  <text x="150" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3436">1. Client Request</text>
+  <text x="150" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">Web/Mobile sends</text>
+  <text x="150" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">HTTP request</text>
+  
+  <text x="350" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3436">2. API Routing</text>
+  <text x="350" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">Controller routes to</text>
+  <text x="350" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">appropriate service</text>
+  
+  <text x="550" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3436">3. AI Processing</text>
+  <text x="550" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">RAG/Embedding/</text>
+  <text x="550" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">Bedrock services</text>
+  
+  <text x="750" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3436">4. Vector Search</text>
+  <text x="750" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">Query database for</text>
+  <text x="750" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">relevant context</text>
+  
+  <text x="950" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3436">5. AI Response</text>
+  <text x="950" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">Claude generates</text>
+  <text x="950" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#636e72">enhanced response</text>
+  
+  <!-- Key Features Box -->
+  <rect x="50" y="790" width="1100" height="80" rx="8" fill="#74b9ff" stroke="#0984e3" stroke-width="2"/>
+  <text x="600" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">🎯 KEY AI CAPABILITIES</text>
+  
+  <text x="200" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Semantic Search</text>
+  <text x="200" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Vector similarity matching</text>
+  
+  <text x="400" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Context Injection</text>
+  <text x="400" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">RAG-enhanced prompts</text>
+  
+  <text x="600" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Smart Fallbacks</text>
+  <text x="600" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Graceful error handling</text>
+  
+  <text x="800" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Session Memory</text>
+  <text x="800" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Multi-turn conversations</text>
+  
+  <text x="1000" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Incremental Learning</text>
+  <text x="1000" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">Auto-embedding generation</text>
+  
+</svg>

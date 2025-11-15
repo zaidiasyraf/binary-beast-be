@@ -13,6 +13,7 @@
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/dto/ChatRequest.java
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/dto/ChatResponse.java
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/service/RAGService.java
+/Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/controller/HealthController.java
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/entity/Customer.java
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/repository/CustomerRelationshipRepository.java
 /Users/zaidi/dev/hackathon/be/binary-beast-be/src/main/java/com/example/bedrock/entity/DigitalFeatureUsage.java

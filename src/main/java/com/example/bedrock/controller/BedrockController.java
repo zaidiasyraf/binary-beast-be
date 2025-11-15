@@ -39,15 +39,11 @@ public class BedrockController {
                         .body(Map.of("error", "Message field is required"));
             }
 
-            // If session ID provided, load conversation history
+            // Load conversation history from session if session ID provided
             if (sessionId != null && !sessionId.isEmpty()) {
-                List<ChatRequest.Message> history = conversationService.getConversation(sessionId);
-                if (history != null && !history.isEmpty()) {
-                    // Merge with any history provided in request (request takes precedence)
-                    if (request.getConversationHistory() == null || request.getConversationHistory().isEmpty()) {
-                        request.setConversationHistory(history);
-                    }
-                }
+                List<ChatRequest.Message> sessionHistory = conversationService.getConversation(sessionId);
+                // Always use session history, ignore any history in request body
+                request.setConversationHistory(sessionHistory);
             }
 
             ChatResponse response = bedrockService.chat(request);
@@ -75,15 +71,11 @@ public class BedrockController {
                         .body(Map.of("error", "Message field is required"));
             }
 
-            // If session ID provided, load conversation history
+            // Load conversation history from session if session ID provided
             if (sessionId != null && !sessionId.isEmpty()) {
-                List<ChatRequest.Message> history = conversationService.getConversation(sessionId);
-                if (history != null && !history.isEmpty()) {
-                    // Merge with any history provided in request (request takes precedence)
-                    if (request.getConversationHistory() == null || request.getConversationHistory().isEmpty()) {
-                        request.setConversationHistory(history);
-                    }
-                }
+                List<ChatRequest.Message> sessionHistory = conversationService.getConversation(sessionId);
+                // Always use session history, ignore any history in request body
+                request.setConversationHistory(sessionHistory);
             }
 
             ChatResponse response = ragService.chatWithRAG(request);
@@ -121,5 +113,6 @@ public class BedrockController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
+
 }
 
