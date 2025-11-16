@@ -12,7 +12,7 @@ This application combines multiple AWS services to deliver a sophisticated AI ba
 
 ### System Architecture Diagram
 
-![Binary Beast Architecture](./architecture-diagram.svg)
+![Binary Beast Architecture](./architectural-image.png)
 
 The architecture consists of four main layers:
 
