@@ -10,6 +10,26 @@ This application combines multiple AWS services to deliver a sophisticated AI ba
 - **AWS Elastic Beanstalk** for scalable application deployment
 - **RAG Implementation** for context-aware responses using customer data
 
+### System Architecture Diagram
+
+![Binary Beast Architecture](./architecture-diagram.svg)
+
+The architecture consists of four main layers:
+
+1. **User Layer**: Banking customers and Aeon Bank Malaysia staff
+2. **Frontend Layer**: Next.js application deployed on AWS Amplify with CDN and SSL
+3. **Backend Layer**: Spring Boot API (Java 17) deployed on AWS Elastic Beanstalk with auto-scaling
+4. **AI/ML Layer**: AWS Bedrock with Claude 3 Haiku and Titan Embeddings for RAG functionality
+5. **Database Layer**: PostgreSQL 15.12 with pgvector extension on Amazon RDS
+
+### Data Flow
+1. Users interact with the Next.js frontend hosted on AWS Amplify
+2. Frontend makes REST API calls to the Spring Boot backend on Elastic Beanstalk
+3. Backend processes requests using multiple services (BedrockService, RAGService, etc.)
+4. AI requests are sent to AWS Bedrock (Claude 3 Haiku for chat, Titan for embeddings)
+5. RAG Service performs vector similarity search against PostgreSQL database
+6. Contextual responses are generated and returned to the user
+
 ## Prerequisites
 
 1. **Java 17+** installed
